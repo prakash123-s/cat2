@@ -14,15 +14,15 @@ pipeline{
         sh 'mvn -f cat/pom.xml install -DskipTests'
       }
     }
-    stage("Deploy"){
+    stage("Test"){
       steps{
         sh 'mvn -f cat/pom.xml test'
       }
     }
    
-    stage("Test"){
+    stage("Deploy"){
       steps{
-        sh 'cp "/var/lib/jenkins/workspace/cat/cat/target/cat.war" " /opt/apache-tomcat-9.0.89/webapps" '
+        sh 'cp "/var/lib/jenkins/workspace/cat/cat/target/cat.war" "/opt/apache-tomcat-9.0.89/webapps" '
       }
     }
 
