@@ -11,7 +11,7 @@ pipeline{
     }
     stage("Build"){
       steps{
-        sh 'mvn -f cat/pom.xml -DskipTests'
+        sh 'mvn -f cat/pom.xml install -DskipTests'
       }
     }
     stage("Test"){
